@@ -63,10 +63,20 @@ function displayErrors() {
  */
 function createStudentCard() {
     // Hämta information från formuläret
-    form.addEventListener("submit", onEvent);
+    form.addEventListener("submit", onSubmit);
 
-    function onEvent() {
+    function onSubmit(event) {
+        // Hindrar sidan från att läsas om innan eventet
+        event.preventDefault();
+        // Deklarerar variabel för namn och sätter fullnameInput som dess värde
+        const name = fullnameInput.value;
+        // Deklarerar variabel för email
+        const email = emailInput.value;
+        // Deklarerar variabel för telefon
+        const phone = phoneInput.value;
 
+        // event som sker --> hämta info från formuläret
+        
 }
     // Uppdatera studentkortet
 
