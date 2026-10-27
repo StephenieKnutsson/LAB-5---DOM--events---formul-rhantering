@@ -23,7 +23,13 @@ const deleteHistoryButton = document.querySelector("#delete");
 
 
 // Array som används för felmeddelanden
-let errors = [];
+let errors = ["Du måste ange ditt namn", "Du måste ange din e-postadress", 
+    "Du måste ange ett telefonnummer"];
+
+// länkar till CSS-class ERROR 
+errors.classlist.add("error");
+
+//-----------------------------------------------------------------------------------
 
 // Array som innehåller sparade studentkort
 let history = [];
