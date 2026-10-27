@@ -68,18 +68,23 @@ function createStudentCard() {
     function onSubmit(event) {
         // Hindrar sidan från att läsas om innan eventet
         event.preventDefault();
-        // Deklarerar variabel för namn och sätter fullnameInput som dess värde
-        const name = fullnameInput.value;
-        // Deklarerar variabel för email
-        const email = emailInput.value;
-        // Deklarerar variabel för telefon
-        const phone = phoneInput.value;
+        // Deklarerar variabel för namn och sätter fullnameInput som dess värde för att hämta in input
+        let name = fullnameInput.value;
+        // Deklarerar variabel för email och hämtar in input
+        let email = emailInput.value;
+        // Deklarerar variabel för telefon och hämtar in input
+        let phone = phoneInput.value;
+        // Deklarerar variabel för typsnitt och hämtar in input
+        let font = fontSelect.value;
 
-        // event som sker --> hämta info från formuläret
-        
+        // Uppdatera studentkortet
+        // Skriver ut input från formuläret
+        previewFullname.textContent = `${name}`; // bör jag bara ha "name" ?
+        previewEmail.textContent = `${email}`;
+        previewPhone.textContent = `${phone}`;
+
 }
-    // Uppdatera studentkortet
-
+    
     // Lägg till studentkortet i historiken
 
     // Spara och uppdatera historiken
@@ -119,6 +124,11 @@ function renderHistory() {
  */
 function clearForm() {
     // Återställ formulär och studentkort
+
+    // Rensar formuläret 
+    fullnameInput.value = "";
+    emailInput.value = "";
+    phoneInput.value = "";
 
     // Rensa eventuella felmeddelanden
 }
