@@ -23,6 +23,16 @@ const deleteHistoryButton = document.querySelector("#delete");
 
 //-----------------------------------------------------------------------------------
 
+// EventListeners
+form.addEventListener("submit", onSubmit);
+clearButton.addEventListener("click", clearForm);
+
+
+
+
+//-----------------------------------------------------------------------------------
+
+
 // Array som används för felmeddelanden
 let errors = ["Du måste ange ditt namn", "Du måste ange din e-postadress", 
     "Du måste ange ett telefonnummer"];
@@ -63,8 +73,7 @@ function displayErrors() {
  */
 function createStudentCard() {
     // Hämta information från formuläret
-    form.addEventListener("submit", onSubmit);
-
+    
     function onSubmit(event) {
         // Hindrar sidan från att läsas om innan eventet
         event.preventDefault();
@@ -83,6 +92,8 @@ function createStudentCard() {
         previewEmail.textContent = `${email}`;
         previewPhone.textContent = `${phone}`;
 
+        // Anropar funktionen clearForm
+        clearForm();
 }
     
     // Lägg till studentkortet i historiken
@@ -124,9 +135,7 @@ function renderHistory() {
  */
 function clearForm() {
     // Återställ formulär och studentkort
-
-    // Rensar formuläret 
-    fullnameInput.value = "";
+    fullnameInput.value = ""; // I och med tom sträng visas inget i studentkortet
     emailInput.value = "";
     phoneInput.value = "";
 
