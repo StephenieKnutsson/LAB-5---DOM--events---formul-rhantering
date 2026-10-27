@@ -22,12 +22,17 @@ const historySection = document.querySelector("#history");
 const deleteHistoryButton = document.querySelector("#delete");
 
 
+
+
+
+
+
 // Array som används för felmeddelanden
 let errors = ["Du måste ange ditt namn", "Du måste ange din e-postadress", 
     "Du måste ange ett telefonnummer"];
 
 // länkar till CSS-class ERROR 
-errors.classlist.add("error");
+//errors.classlist.add("error");
 
 //-----------------------------------------------------------------------------------
 
@@ -62,7 +67,11 @@ function displayErrors() {
  */
 function createStudentCard() {
     // Hämta information från formuläret
+    fullnameInput.addEventListener("change", onEvent);
 
+    function onEvent() {
+
+}
     // Uppdatera studentkortet
 
     // Lägg till studentkortet i historiken
