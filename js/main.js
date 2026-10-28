@@ -1,7 +1,7 @@
 "use strict";
 /*
  * Laboration 5 - Studentkortsgenerator
- * Namn: DITT NAMN
+ * Namn: Stephenie Knutsson
  */
 
 // Hämta element från DOM
@@ -23,24 +23,25 @@ const deleteHistoryButton = document.querySelector("#delete");
 
 //-----------------------------------------------------------------------------------
 
-// EventListeners
+
+// EventListeners [variabel.eventlistener ("event att lyssna efter", function som körs)]
 form.addEventListener("submit", onSubmit);
 clearButton.addEventListener("click", clearForm);
-
-
 
 
 //-----------------------------------------------------------------------------------
 
 
 // Array som används för felmeddelanden
-let errors = ["Du måste ange ditt namn", "Du måste ange din e-postadress", 
+let errors = ["Du måste ange ditt namn", "Du måste ange en giltig e-postadress", 
     "Du måste ange ett telefonnummer"];
 
 // länkar till CSS-class ERROR 
-//errors.classlist.add("error");
+errors.classlist.add("error");
+
 
 //-----------------------------------------------------------------------------------
+
 
 // Array som innehåller sparade studentkort
 let history = [];
@@ -51,7 +52,14 @@ let history = [];
  */
 function validateForm() {
     // Kontrollera formulärets obligatoriska fält
+    let name = fullnameInput.value;
+        if (name-length === 0) {
+            return false;
+        } 
+    let email = emailInput.value;
+    let phone = phoneInput.value;
 
+    return true;
     // Visa eventuella felmeddelanden
 
     // Returnera resultatet (true eller false) av valideringen
@@ -65,6 +73,11 @@ function displayErrors() {
     // Rensa tidigare felmeddelanden
 
     // Skriv ut aktuella felmeddelanden till DOM
+    // Villkor om email = tomt --> visa index 1 i let errors arrayen
+    if (email.value === "") {
+        console.log(errors[1]);
+        
+    }
 }
 
 
@@ -74,6 +87,7 @@ function displayErrors() {
 function createStudentCard() {
     // Hämta information från formuläret
     
+    //ska jag ta bort denna och bara använda "createStudentCard"?
     function onSubmit(event) {
         // Hindrar sidan från att läsas om innan eventet
         event.preventDefault();
